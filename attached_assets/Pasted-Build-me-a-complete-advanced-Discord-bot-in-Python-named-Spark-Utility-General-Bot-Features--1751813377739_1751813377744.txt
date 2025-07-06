@@ -1,0 +1,62 @@
+Build me a complete, advanced Discord bot in Python named "Spark Utility".
+
+General Bot Features:
+- Customizable prefix from environment secret PREFIX.
+- Required environment secrets:
+  - BOT_TOKEN (Discord bot token)
+  - OWNER_ID (owner Discord ID)
+  - PREFIX (bot command prefix).
+- Bot status must display "Spark Utility | <prefix>help".
+- Every command or bot action must log a detailed embed to the OWNER_ID’s DMs with command/action name, who triggered it (username + ID), server & channel, time, arguments used, and errors if any. Ensure logs are reliable and bug-free (handle closed DMs gracefully).
+- Organize all features using cogs for maintainability.
+- Use discord.py or nextcord with discord.ui for interactivity.
+- Include robust error handling and add detailed docstrings/comments explaining how each feature works.
+
+Utility & Moderation Commands:
+- ping, serverinfo, userinfo, avatar, servericon, serverbanner, serverowner, servermembers, botinfo, membercount, roleslist, emojislist, channelinfo, invite, uptime.
+- Moderation: clear messages (bulk delete), ban, unban, kick, slowmode set/unset.
+- Fun/utility: poll (embed yes/no polls), calculator, shorten URL (tinyurl API), quote, urban dictionary search, define, translate, remind, timer, afk, report, suggestions, sayembed, choose, eightball, meme.
+- All moderation commands must include permission checks.
+- Custom help command: list **every command** with a detailed usage guide in organized embed categories (Moderation, Utility, Fun, Ticketing, etc.).
+
+Advanced Ticket System (better than Ticket Tool):
+
+**Interactive Ticket Panel:**
+- Setup command generates a panel embed with buttons or select menus allowing users to open tickets by category (Support, Sales, Appeals, etc.).
+- Uses discord.ui buttons/menus for rich interaction.
+- Ticket creation:
+  - Creates a private channel (e.g., "ticket-username") with correct permission overwrites for the user + staff.
+  - Supports category-specific ticket routing: assign tickets to staff teams or categories automatically.
+- Ticket controls inside the ticket:
+  - Buttons for close, claim, add/remove user, lock/unlock, rename, delete.
+- Claiming system:
+  - Staff can claim tickets via button/command; ticket is marked with the staff member’s name.
+- Ticket renaming & reassignment commands.
+- Auto-archive inactive tickets after configurable time.
+- Transcript on close:
+  - Automatically generate transcript (full conversation) as text file and send to log channel and/or owner’s DM.
+- Ticket analytics command: shows tickets opened, closed, average closing time, staff performance, and category stats.
+- Full ticket logs:
+  - Every action (creation, claim, close, delete, reply) is logged in ticket-logs channel and owner’s DMs.
+
+**Normal Ticket Panel:**
+- Setup command creates a classic embed panel with reactions (e.g., 🎫) that users can click to open a ticket.
+- Instructions included in the embed on how to open a ticket.
+- Ticket process same as interactive panel after ticket creation.
+- Ticket customization command:
+  - Customize panel embed title, description, color, footer, thumbnail.
+
+**Additional Ticket System Features:**
+- Anti-spam: prevent users from opening multiple simultaneous tickets; if they try, send ephemeral reply or DM.
+- Message linking command: creates jump URLs to messages in tickets.
+- Commands to add/remove additional users to ticket channels.
+- Staff-only close/force-close commands.
+- Optional DM ticket creation:
+  - Command to let users open a ticket via DM to the bot, creating a ticket in a default server.
+
+Requirements:
+- All commands & panels must be fully customizable (role IDs, category IDs, log channel IDs, ticket settings).
+- Robust error handling for every ticket command & interaction.
+- Provide setup instructions as commands (e.g., `<prefix>ticket-setup interactive`, `<prefix>ticket-setup normal`) with easy-to-follow guide for admins.
+
+Combine all of these features with the utility & moderation commands above in one bot with proper organization, logs, error handling, and a beautiful custom help menu.

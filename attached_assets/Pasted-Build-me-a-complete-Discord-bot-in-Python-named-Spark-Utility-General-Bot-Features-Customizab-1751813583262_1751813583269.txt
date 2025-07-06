@@ -1,0 +1,103 @@
+Build me a complete Discord bot in Python named "Spark Utility".
+
+General Bot Features:
+- Customizable prefix configurable via environment secret PREFIX.
+- Required environment secrets:
+  - BOT_TOKEN: Discord bot token
+  - OWNER_ID: Discord owner’s user ID
+  - PREFIX: bot command prefix
+- Bot status should display: "Spark Utility | <prefix>help".
+- Every command or bot action must send a detailed log embed to OWNER_ID’s DMs, including:
+  - Command or action name
+  - User who triggered it (username + ID)
+  - Server & channel
+  - Time of execution
+  - Arguments/inputs used
+  - Any errors (with stack trace if possible)
+- Logs must be reliable and bug-free, with proper error handling if owner’s DMs are closed.
+- Organize everything using cogs for maintainability.
+- Use discord.py or nextcord with discord.ui for interactive elements.
+- All commands must have robust error handling and include docstrings/comments explaining each feature.
+
+Utility Commands (must include all of these, with clear help descriptions):
+- ping (bot latency)
+- serverinfo (info about the server)
+- userinfo (info about a member)
+- avatar (fetch a user’s profile picture)
+- servericon (server’s icon)
+- serverbanner (server’s banner)
+- serverowner (who owns the server)
+- servermembers (total humans & bots)
+- botinfo (details about the bot)
+- membercount (just total member count)
+- roleslist (list of all server roles)
+- emojislist (list of server emojis)
+- channelinfo (details about a specific channel)
+- invite (generate a bot invite link with permissions)
+- uptime (show how long bot has been running)
+- poll (create yes/no polls in embed)
+- calculator (+, -, *, / calculations)
+- shorten (shorten URLs using TinyURL API)
+- quote (send a random inspirational quote)
+- urban (search Urban Dictionary)
+- define (dictionary definitions)
+- translate (auto-detect language, translate to target language)
+- remind (DM user after set time)
+- timer (countdown in chat)
+- afk (set AFK status with reason)
+- report (users report others; sends to log channel or owner DM)
+- suggestions (users submit suggestions)
+- sayembed (send a rich embed with custom title & description)
+- choose (randomly pick one from given options)
+- eightball (8ball answers to questions)
+- meme (fetch random meme from Reddit)
+
+Advanced Ticket System (more advanced than Ticket Tool):
+
+**Interactive Ticket Panel:**
+- Setup command creates a rich embed panel with buttons or select menus allowing users to open tickets by category (e.g., Support, Sales, Appeals).
+- Ticket creation:
+  - Automatically creates a private channel "ticket-username" with permission overwrites (user + staff roles).
+  - Category-specific ticket routing: assign to the right staff team automatically.
+- Controls inside tickets:
+  - Buttons for close, claim, add/remove user, lock/unlock, rename, delete.
+- Claiming:
+  - Staff can claim tickets via button/command; ticket marks staff member’s name.
+- Renaming & reassignment commands.
+- Auto-archive:
+  - Optionally auto-close inactive tickets after configurable time.
+- Transcript on close:
+  - Generate and send transcript as text file to ticket log channel and/or owner’s DM.
+- Ticket analytics command:
+  - Show total tickets opened, closed, average closing time, per-staff performance, category usage.
+- Full logging:
+  - Every ticket event (creation, claim, close, delete, etc.) logged to ticket-logs channel and owner’s DM.
+
+**Normal Ticket Panel:**
+- Setup command creates a simple embed with reaction (🎫) to open tickets.
+- Include clear instructions inside the embed for how to open tickets.
+- Ticket process follows same flow after opening (creation, controls, logs, transcripts).
+
+**Additional Ticket System Features:**
+- Anti-spam:
+  - Prevent users from opening multiple tickets simultaneously; reply ephemerally or DM them.
+- Add/remove users commands for tickets.
+- Message linking:
+  - Command to generate jump URLs for specific messages in tickets.
+- Staff-only commands to close or force-close tickets.
+- Optional DM-based ticket opening:
+  - Command so users can open tickets via DM to the bot; creates a ticket in a default server.
+- Panel customization:
+  - Command to customize ticket panel embed (title, description, color, footer, thumbnail).
+- Detailed setup instructions:
+  - Commands like `<prefix>ticket-setup interactive` or `<prefix>ticket-setup normal` provide easy-to-follow guides for admins.
+
+Help Command:
+- Custom help command listing **every command** in categorized rich embeds (Utility, Tickets, Fun).
+- For each command, include what it does and how to use it.
+
+Requirements:
+- All commands must be organized with cogs.
+- All features must have robust error handling and logs.
+- All actions and commands must send detailed logs to OWNER_ID’s DM.
+- Status must display "Spark Utility | <prefix>help".
