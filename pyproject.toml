@@ -1,11 +1,17 @@
-[project]
-name = "repl-nix-workspace"
+[tool.poetry]
+name = "spark-utility"
 version = "0.1.0"
-description = "Add your description here"
-requires-python = ">=3.11"
-dependencies = [
-    "aiohttp>=3.12.13",
-    "aiosqlite>=0.21.0",
-    "discord-py>=2.5.2",
-    "flask>=3.0.3",
-]
+description = "Spark Utility Discord bot with web server"
+authors = ["GAUTTHAMdev <Viviangautham1124@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+aiohttp = "^3.12.13"
+aiosqlite = "^0.21.0"
+discord-py = "^2.5.2"
+flask = "^3.0.3"  # added Flask as you need web support
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
